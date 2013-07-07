@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+ 
+ 
+{% block title %} MEETme {% endblock %}
+
+{% block content %}
+<style>
+body {
+color:white;
+}
+</style>
+ <body link="blue" vlink="blue" alink="#FF0000"> </body>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css"/> 
+<link  rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/question.css"/> 
+<a id= "meet_logo"href="/newsfeed"><img src="{{ STATIC_URL }}images/MEET.me-logo1.png" /></a>
+
+
+<form method="get" action="/deauthorize/">
+    <button type="submit"  id="logout">Logout</button>
+</form> 
+
+<form action="../questionsubmit/" method="post">
+{% csrf_token %}
+<p id="post_q">Post a question:</q><br/>
+<div id="qbox"><textarea rows="3" style="width:500px" name="body" id="body"></textarea><br/></div><br>
+<input type="submit" value="Post" id="post_q_B">
+</form>
+
+<br/><br/>
+
+
+{% for question in questions %}
+
+
+<div class = "question"><a href="../answer?q={{question.slug}}" id = "q_text">{{question.body}}</a>
+<p id = "q_text">posted by {{question.username}} on <time datetime="{{question.created|date}}">{{question.created|date}}</time></div><br>
+
+    {% endfor %}
+
+
+
+{% endblock %}

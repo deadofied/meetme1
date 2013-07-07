@@ -1,0 +1,45 @@
+h1{
+  font-family:"Comic Sans MS";
+  font-size:3em;
+  color:red;
+}
+
+
+h3{
+  font-family:"sans-serif";
+  font-size:2em;
+  color:crimson;
+}
+
+#sign_up{
+  font-family:"arial";
+  font-size:1.3em;
+  margin:50px;
+  color:white;
+}
+
+
+#sign_up_button{
+  font-family:"arial";
+  font-size:1em;
+	-moz-border-radius:200px;
+	-webkit-border-radius:200px;
+	-khtml-border-radius:200px;
+	  border-radius:200px;
+	  border: 2.5px solid black;
+}
+
+#sign_up_button:hover {
+    text-decoration: none;
+    border-color: red;
+    left: 2px;
+}
+
+#head{
+  margin:50px
+}
+
+
+
+
+

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+ 
+ 
+{% block title %} MEETme {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css"/> 
+
+		<img src = "{{ STATIC_URL }}images/MEET.me-logo1.png"  id = "meet_logo">
+
+<p style="color:white; size:200%; font-weight:bold;">UNDER CONSTRUCTION</p>
+<form method="get" action="/deauthorize/">
+    <button type="submit"  id="logout">Logout</button>
+</form> 
+{% endblock %}

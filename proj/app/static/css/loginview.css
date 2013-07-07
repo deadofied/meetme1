@@ -1,0 +1,52 @@
+div#error {
+	height:50px;
+	weight:250px;
+	background-color:#FF9292;
+	border-color:#FF3636;
+	border:3px solid;
+	border-color:#F72D2D;
+}
+
+#signup {
+	color:"black";
+	text-decoration:none;
+	font-weight:bold;
+	font-size:20px;
+
+}
+p#text {
+	position:relative;
+	left:5px;
+	bottom:5px;
+	font-weight:bold;
+
+}
+
+#login {
+	margin-top:50px;
+	margin-left:30px;
+	color:crimson;
+	font-weight:bold;
+	font-size:25px;
+
+}
+
+#loginbutton {
+	font-family:"arial";
+  font-size:1em;
+	-moz-border-radius:200px;
+	-webkit-border-radius:200px;
+	-khtml-border-radius:200px;
+	  border-radius:200px;
+	  border: 2.5px solid black;
+}
+#loginbutton:hover {
+    text-decoration: none;
+    border-color: red;
+    left: 2px;
+}
+body {
+	background-image:url("../images/background.jpg");
+}
+
+

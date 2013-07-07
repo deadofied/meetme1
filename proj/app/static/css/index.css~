@@ -1,0 +1,78 @@
+h1#header{	
+	background-color:3B5998;
+	padding:10px;
+}
+
+body {
+	background-image:url("../images/background.jpg");
+}
+
+div#login{
+	background-color:crimson;
+	width:500px;
+	height:300px;
+	position:absolute;
+ 	right:10px;
+	top:300px;
+	border-radius:15px;
+	
+}
+
+span#about_MEET_me{
+	font-size:1.5em;
+	color:black;
+	font-family:arial;
+}
+
+p#created{
+	bottom:0;	
+}
+
+#loginB{
+	margin-left:15px;
+	
+}
+h2#headerr{
+	
+	background-color:3B5998;
+	position: relative;
+top: 510px;
+}
+p#meett{
+	font-size:20;
+}
+
+#loginButton{
+  font-family:"arial";
+  font-size:1em;
+	-moz-border-radius:200px;
+	-webkit-border-radius:200px;
+	-khtml-border-radius:200px;
+	  border-radius:200px;
+	  border: 2.5px solid black;
+}
+
+#loginButton:hover {
+    text-decoration: none;
+    border-color: red;
+    left: 2px;
+}
+
+#info {
+	position:absolute;
+	color:white;
+}
+
+#more {
+	position:absolute;
+	top:500px;
+	color:white;
+}
+
+a:link {color:crimson;}
+a:link {text-decoration:none;}
+a:link {font-size:20px;}
+a:link {font-weight:bold;}
+
+
+

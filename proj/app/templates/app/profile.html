@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+ 
+{% block title %}{{profile.title}}{% endblock %}
+
+
+{% block content %}
+
+<style>
+a:link {color:crimson; font-weight:bold }
+a:hover {color:crimson }
+a:visited {color:crimson }
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(function() {
+$( ".interests" ).each(function( index ) {
+
+var parts = $(this).text().split(',');
+var code = $(this).html();
+
+$.each(parts, function(index, value) {
+code = code.replace(value, '<img src="{{STATIC_URL}}images/icons/' + value + '.png">' + value + '<br>');
+});
+code = code.replace(/\,/g, '');
+$(this).html(code);
+});
+});
+</script>
+    <LINK href="{{ STATIC_URL }}css/profile.css" rel="stylesheet" type="text/css">
+
+	<img src = "{{ STATIC_URL }}images/MEET.me-logo1.png"  id = "meet_logo">
+    
+	
+<span id = user_info>
+
+<span id = "profile_pic"><img src="{{ STATIC_URL }}images/profiles/{{user.username}}.jpg" width=160 height=200></span>
+
+<span id=usertitle>{{user.first_name}} {{user.last_name}} </span>
+   <br><br><br> 
+<div id="user_time"
+	<p id="signedup">Signed up on
+            <time datetime="{{profile.created|date:"c"}}">
+            {{profile.created|date}}
+            </time>
+        </p>
+</div>
+ 
+    
+</span>
+
+
+
+<br><br><br>
+<center><h3> Interests & Hobbies: <h3></center>
+
+
+<center><div class="interests">{{profile.interests}}</div></center>
+
+
+{% endblock %}
+

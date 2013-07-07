@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+ 
+ 
+{% block title %} MEETme {% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+#div1, #div2
+{float:left; width:500px; height:300px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+
+	<img src = "{{ STATIC_URL }}images/MEET.me-logo1.png"  id = "meet_logo">
+
+    <LINK href="{{ STATIC_URL }}css/profile-edit.css" rel="stylesheet" type="text/css"><br/><br/>
+<span id="all_info">
+<span id = user_info>
+
+<span id=usertitle2>{{user.first_name}} </span><br/>&nbsp;&nbsp;
+
+<span id=usertitle1>{{user.last_name}} </span><br/><br/>
+
+<span id=usertitle>{{user.email}} </span><br>
+
+<span id=usertitle>{{profile.description}} </span></span><br/><br/>
+
+   <br><br>
+
+</span>
+<p id = "profile_pic">Profile Picture:</p>
+<span id = "profile_pic1">
+	
+	<img src="{{ STATIC_URL }}images/profiles/profile_standard.png" width = 150px heigh = 300px>
+	<form>
+		<input type="file" value="Choose file" size=17>
+	</form>
+</span>
+
+
+
+
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<center><h3>Interests&Hobboies</h3></center>
+
+<br>
+<center><table><td>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="{{ STATIC_URL }}images/icons/baseball.png" draggable="true" ondragstart="drag(event)" id="baseball" width="50" height="50" value = "baseball">
+  <img src="{{ STATIC_URL }}images/icons/bodybuilding.png" draggable="true" ondragstart="drag(event)" id="bodybuilding" width="50" height="50" value = "bodybuilding">
+  <img src="{{ STATIC_URL }}images/icons/bowling.png" draggable="true" ondragstart="drag(event)" id="bowling" width="50" height="50" value = "bowling">
+  <img src="{{ STATIC_URL }}images/icons/cards.png" draggable="true" ondragstart="drag(event)" id="cards" width="50" height="50" value = "cards">
+  <img src="{{ STATIC_URL }}images/icons/chess.png" draggable="true" ondragstart="drag(event)" id="chess" width="50" height="50" value = "chess">
+  <img src="{{ STATIC_URL }}images/icons/computers.png" draggable="true" ondragstart="drag(event)" id="computers" width="50" height="50" value = "computers">
+  <img src="{{ STATIC_URL }}images/icons/cycling.png" draggable="true" ondragstart="drag(event)" id="cycling" width="50" height="50" value = "cycling">
+  <img src="{{ STATIC_URL }}images/icons/football.png" draggable="true" ondragstart="drag(event)" id="football" width="50" height="50" value = "football">
+  <img src="{{ STATIC_URL }}images/icons/guitar.png" draggable="true" ondragstart="drag(event)" id="guitar" width="50" height="50" value = "guitar">
+  <img src="{{ STATIC_URL }}images/icons/ice-skating.png" draggable="true" ondragstart="drag(event)" id="ice-skating" width="50" height="50" value = "ice-skating">
+  <img src="{{ STATIC_URL }}images/icons/movies.png" draggable="true" ondragstart="drag(event)" id="movies" width="50" height="50" value = "movies">
+  <img src="{{ STATIC_URL }}images/icons/music.png" draggable="true" ondragstart="drag(event)" id="music" width="50" height="50" value = "music">
+  <img src="{{ STATIC_URL }}images/icons/painting.png" draggable="true" ondragstart="drag(event)" id="painting" width="50" height="50" value = "painting">
+  <img src="{{ STATIC_URL }}images/icons/photography.png" draggable="true" ondragstart="drag(event)" id="photography" width="50" height="50" value = "photography">
+  <img src="{{ STATIC_URL }}images/icons/poetry.png" draggable="true" ondragstart="drag(event)" id="poetry" width="50" height="50" value = "poetry">
+  <img src="{{ STATIC_URL }}images/icons/pool.png" draggable="true" ondragstart="drag(event)" id="pool" width="50" height="50" value = "pool">
+  <img src="{{ STATIC_URL }}images/icons/pottery.png" draggable="true" ondragstart="drag(event)" id="pottery" width="50" height="50" value = "pottery">
+  <img src="{{ STATIC_URL }}images/icons/racing.png" draggable="true" ondragstart="drag(event)" id="racing" width="50" height="50" value = "racing">
+  <img src="{{ STATIC_URL }}images/icons/reading.png" draggable="true" ondragstart="drag(event)" id="reading" width="50" height="50" value = "reading">
+  <img src="{{ STATIC_URL }}images/icons/records.png" draggable="true" ondragstart="drag(event)" id="records" width="50" height="50" value = "records">
+  <img src="{{ STATIC_URL }}images/icons/sailing.png" draggable="true" ondragstart="drag(event)" id="sailing" width="50" height="50" value = "sailing">
+  <img src="{{ STATIC_URL }}images/icons/tennis.png" draggable="true" ondragstart="drag(event)" id="tennis" width="50" height="50" value = "tennis">
+
+</div></td>
+
+
+<td><div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+</table></center>
+
+<form method="get" action="/newsfeed/">
+        <button type="submit"  id="Save">Save changes</button>
+        </form> 
+
+{% endblock %}

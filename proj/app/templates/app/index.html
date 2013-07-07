@@ -1,0 +1,73 @@
+
+
+
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/index.css">
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+   $(document).ready(function(){
+	   $("input").focus(function(){
+		   $(this).css("background-color","#cccccc");
+	   });
+	   $("input").blur(function(){
+		   $(this).css("background-color","#ffffff");
+		});
+	});
+
+		   
+</script>
+<body id="body">
+		<center length = 100px>
+			<img src = "{{ STATIC_URL }}images/MEET.me-logo1.png"  id = "meet_logo">
+		</center>
+
+<table>
+	<td>
+		<span id = "about_MEET_me"><br><br>
+<p id="info">MEET.me is a site in which meets students can share
+interests and hobbies with instructors and are able to talkand ask questions about any subject they want. 
+</span>
+
+	</td>
+
+	<td>		<div id="login">
+<form action="../authorize/" method="post">
+
+{% csrf_token %}
+		<h5 id="sign">Sign in</h5>
+		<table>
+				<tr><td><p id="loginuser">Username:</p> </td><td><input type="text" size="18" name="username" id="username"></td></tr>
+				<tr><td><p id="loginpassword">Password:</p> </td><td><input type="password"size="18" name="password" id="password"></td></tr>
+		</table>
+		<input type="submit" value="login" id="loginButton" style="position:absolute;left:350px;"><br>
+		
+	
+	</form>
+
+<p id="loginB">don't have an account? <a href="../register" style="color:blue">sign up</a></p>
+
+</div>
+	</td>
+</table>
+<div id="more"><br><br><br><br><a href= "http://meet.mit.edu"><p id="more1">Want to know about MEET ?</p></a></div>
+<img src = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTs9lu_DJepSZEx8AfaFOPQaah2_qp2OttR2VwDZ8YD4M4RgLiskg" width = 300px height = 100px id = "meet_logo1">
+
+
+	
+	</body>
+</html>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+

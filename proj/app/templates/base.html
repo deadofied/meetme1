@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	
+        <meta charset="utf-8">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/base_style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+        </head>
+    <body >
+        <div class="content">
+            
+	<form method="get" action="/deauthorize/">
+        <button type="submit"  id="logout">Logout</button>
+        </form> 
+<form method="get" action="/edit/">
+    <button type="submit"  id="edit-profile">Profile</button>
+</form>
+<form method="get" action="/question/">
+    <button type="submit"  id="questions">Q&A</button>
+</form>
+<form method="get" action="/newsfeed/">
+    <button type="submit"  id="home">Home</button>
+</form>
+
+<div id = "under_line"></div>
+
+{% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

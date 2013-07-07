@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+ 
+ 
+{% block title %} MEETme {% endblock %}
+
+{% block content %}
+
+<style>
+body {
+color:white;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/answer.css"/> 
+
+<a id= "meet_logo"href="/newsfeed"><img src="{{ STATIC_URL }}images/MEET.me-logo1.png" /></a>
+<form method="get" action="/deauthorize/">
+    <button type="submit"  id="logout">Logout</button>
+</form> 
+
+
+
+<div class="question" style="color:red; size:200%; font-weight:bold; font-femily:arial"><p class="question"> Q: {{question.body}}</p>
+
+
+<p class="question" style="color:black; size:200%; font-femily:arial">posted by {{question.username}} on <time datetime="{{question.created|date}}">{{question.created|date}}</time></p><br/></div><br>
+
+
+{% for answer in answers %}
+
+
+<div class="answer" style="color:blue; size:200%; font-weight:bold; font-femily:arial"><p class="answer">A: {{answer.body}}</p>
+
+
+<p class="answer" style="color:black; size:200%; font-femily:arial">posted by {{answer.username}} on <time datetime="{{question.created|date}}">{{answer.created|date}}</time></p><br/></div><br>
+
+    {% endfor %}
+
+
+<form action="../answersubmit/" method="post">
+{% csrf_token %}
+<br><br><p id="post_a">Post an answer:</p>
+<div id="abox"><textarea rows="3" style="width:495px" name="body" id="body"></textarea><br>
+<input type="hidden" name="question" value="{{question.slug}}"></div><br>
+<input type="submit" value="Post" id="post_a_B">
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+ 
+{% block title %} MEETme {% endblock %}
+ 
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>
+$(function() {
+$( ".interests" ).each(function( index ) {
+
+var parts = $(this).text().split(',');
+var code = $(this).html();
+
+$.each(parts, function(index, value) {
+code = code.replace(value, '<img src="{{STATIC_URL}}images/icons/' + value + '.png">');
+});
+$(this).html(code);
+});
+
+      // bind change event to select
+      $('#search').bind('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+
+});
+</script>
+
+
+
+
+<style>
+a:link {color:crimson; font-weight:bold }
+a:hover {color:crimson }
+a:visited {color:crimson }
+</style>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/newsfeed.css"/> 
+
+
+
+		
+
+
+<span id="searchname">Search By Interests:&nbsp;<select id="search">
+	<option value="#">Select</option>
+	<option value="/newsfeed?q=baseball" name="Baseball">Baseball</option>
+        <option value="/newsfeed?q=bodybuilding" name="Bodybuilding">Bodybuilding</option>
+	<option value="/newsfeed?q=bowling" name="Bowling">Bowling</option>
+	<option value="/newsfeed?q=cards" name="Cards">Cards</option>
+	<option value="/newsfeed?q=chess" name="Chess">Chess</option>
+        <option value="/newsfeed?q=computers" name="Computers">Computers</option>
+	<option value="/newsfeed?q=cycling" name="Cycling">Cycling</option>
+	<option value="/newsfeed?q=football" name="Football">Football</option>
+	<option value="/newsfeed?q=guitar" name="Guitar">Guitar</option>
+        <option value="/newsfeed?q=ice-skating" name="Ice-skating">Ice-skating</option>
+	<option value="/newsfeed?q=movies" name="Movies">Movies</option>
+	<option value="/newsfeed?q=music" name="Music">Music</option>
+	<option value="/newsfeed?q=painting" name="Painting">Painting</option>
+        <option value="/newsfeed?q=photography" name="Photography">Photography</option>
+	<option value="/newsfeed?q=poetry" name="Poetry">Poetry</option>
+	<option value="/newsfeed?q=pottery" name="Pottery">Pottery</option>
+	<option value="/newsfeed?q=racing" name="Racing">Racing</option>
+        <option value="/newsfeed?q=records" name="Records">Records</option>
+	<option value="/newsfeed?q=sailing" name="Sailing">Sailing</option>
+	<option value="/newsfeed?q=tennis" name="Tennis">Tennis</option>
+	<option value="/newsfeed?q=reading" name="Reading">Reading</option>
+
+
+
+                      
+                   </select></span>		
+    {% for profile in profiles %}
+<div id="newsfeed">
+<span id="picture">
+<img src='{{newsFeed.picture}}' id="picture" width="40" height="56" >
+</span>
+<div id="text" style="color:white;">
+<br><br><br><br><br>
+<br><br>
+<a href="{{profile.get_absolute_url}}" id="profile-name">{{profile.first_name}} {{profile.last_name}}<br></a>
+<div class="interests">{{profile.interests}}</div><br>
+
+
+</div>
+<span id="time"></style><time datetime="{{profile.created|date}}">{{profile.created|date}}</time> &nbsp;{{profile.location}}</span>
+
+</div>
+<form method="get" action="/deauthorize/">
+    <button type="submit"  id="logout">Logout</button>
+</form> 
+<form method="get" action="/edit-profile/">
+    <button type="submit"  id="edit-profile">Profile</button>
+</form>
+    {% endfor %}
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+ 
+{% block title %}{{profile.title}}{% endblock %}
+
+
+{% block content %}
+
+<style>
+a:link {color:crimson; font-weight:bold }
+a:hover {color:crimson }
+a:visited {color:crimson }
+
+</style>
+
+    <LINK href="{{ STATIC_URL }}css/profile.css" rel="stylesheet" type="text/css">
+
+
+
+	<img src = "{{ STATIC_URL }}images/MEET.me-logo1.png"  id = "meet_logo">
+<input type = "submit" value =  "Edit Profile" id = "edit_profile_button">
+<div id = user_info>
+<h1> {{profile.title}} </h1>
+    
+	<p>Signed up on
+            <time datetime="{{profile.created|date:"c"}}">
+            {{profile.created|date}}
+            </time>
+        </p>
+ 
+    	<p class="description">
+        {{profile.description}}    {{profile.content|safe}}
+    	</p>
+
+	<p id = "profile_pic"> Profile Picture: </p>
+
+</div>
+
+
+
+<br><br><br>
+<center><h3> Interests & Hobbies: <h3></center>
+
+
+
+<table>
+<td>
+<div class="interests">
+Interests:
+</div>
+</td>
+
+<td>
+<div class="hobbies" style = float:right>
+Hobbies:
+</div>
+</td> 
+</table>
+{% endblock %}
+
